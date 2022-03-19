@@ -4,7 +4,7 @@
 <generatorConfiguration>
     <!--数据库的jdbc驱动的jar包地址-->
 <!--    <classPathEntry location="./mysql-connector-java-8.0.13.jar"/>-->
-    <classPathEntry location="D:\personal\learn note\project\test-demo\mybatis-generator\src\main\resources\lib\mysql-connector-java-8.0.13.jar"/>
+    <classPathEntry location="D:\personal-project-list\mybatis-generator\src\main\resources\lib\mysql-connector-java-8.0.13.jar"/>
     <context id="tt">
 
         <!--url 中的后缀是解决 Cannot obtain primary key information from the database, generated objects may be incomplete 问题-->
@@ -25,58 +25,29 @@
             <property name="forceBigDecimals" value="false"/>
         </javaTypeResolver>
 
-        <javaModelGenerator targetPackage="com.thinkgem.jeesite.modules.clearing.entity.vip"
-                            targetProject="G:/project/mybatis-generator/src/main/java">
+        <javaModelGenerator targetPackage="client.demo.model"
+                            targetProject="src/main/java">
             <property name="enableSubPackages" value="false"/>
             <property name="trimStrings" value="true"/>
         </javaModelGenerator>
-        <sqlMapGenerator targetPackage="mappings.vip"
-                         targetProject="G:/project/mybatis-generator/src/main/java">
+        <sqlMapGenerator targetPackage="mapper"
+                         targetProject="src/main/resources">
             <property name="enableSubPackages" value="false"/>
         </sqlMapGenerator>
-        <javaClientGenerator targetPackage="com.thinkgem.jeesite.modules.clearing.dao.vip"
-                             targetProject="G:/project/mybatis-generator/src/main/java"
+        <javaClientGenerator targetPackage="client.demo.dao"
+                             targetProject="src/main/java"
                              type="XMLMAPPER">
             <property name="enableSubPackages" value="false"/>
         </javaClientGenerator>
         <!-- domainObjectName 大写 ，不然很麻烦 -->
-        <table tableName="t_vip_dz_order_data" domainObjectName="TVipDzOrderData" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false" >
+        <table tableName="t_sys_config" domainObjectName="SysConfig" >
             <!--设置自增主键-->
-            <generatedKey column="id" sqlStatement="Mysql"></generatedKey>
+            <generatedKey column="id" sqlStatement="Mysql" identity="true"></generatedKey>
             <!--用于配置不需要手动插入，即自动生成的，如修改时间-->
-<!--            <ignoreColumn column="c_create_time"></ignoreColumn>-->
-<!--            <ignoreColumn column="c_update_time"></ignoreColumn>-->
-        </table>
-        <table tableName="t_vip_dz_oufei_data" domainObjectName="TVipDzOufeiData" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false" >
-            <!--设置自增主键-->
-            <generatedKey column="id" sqlStatement="Mysql"></generatedKey>
-            <!--用于配置不需要手动插入，即自动生成的，如修改时间-->
-<!--            <ignoreColumn column="c_create_time"></ignoreColumn>-->
-<!--            <ignoreColumn column="c_update_time"></ignoreColumn>-->
-        </table>
-        <table tableName="t_vip_dz_recharge_record" domainObjectName="TVipDzRechargeRecord" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
-            <!--设置自增主键-->
-            <generatedKey column="id" sqlStatement="Mysql"></generatedKey>
-            <!--用于配置不需要手动插入，即自动生成的，如修改时间-->
-<!--            <ignoreColumn column="c_create_time"></ignoreColumn>-->
-<!--            <ignoreColumn column="c_update_time"></ignoreColumn>-->
-        </table>
-        <table tableName="t_vip_dz_out_result" domainObjectName="TVipDzOutResult" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
-            <!--设置自增主键-->
-            <generatedKey column="id" sqlStatement="Mysql"></generatedKey>
-            <!--用于配置不需要手动插入，即自动生成的，如修改时间-->
-<!--            <ignoreColumn column="c_create_time"></ignoreColumn>-->
+            <ignoreColumn column="create_time"></ignoreColumn>
 <!--            <ignoreColumn column="c_update_time"></ignoreColumn>-->
         </table>
 
-
-        <table tableName="t_vip_dz_in_result" domainObjectName="TVipDzInResult" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
-            <!--设置自增主键-->
-            <generatedKey column="id" sqlStatement="Mysql"></generatedKey>
-            <!--用于配置不需要手动插入，即自动生成的，如修改时间-->
-<!--            <ignoreColumn column="c_create_time"></ignoreColumn>-->
-<!--            <ignoreColumn column="c_update_time"></ignoreColumn>-->
-        </table>
     </context>
 
 </generatorConfiguration>
