@@ -36,3 +36,8 @@ public class MyResolver extends JavaTypeResolverDefaultImpl {
 ## perfect 记录
 通过 idea 执行运行 mvn,提示 The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
 但是直接通过 mvn mybatis-generator:generate 却可以
+
+## tinyInt(1) 变成了 Boolen
+```
+jdbc 连接后面添加   &amp;tinyInt1isBit=false
+```

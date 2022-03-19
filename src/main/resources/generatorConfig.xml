@@ -9,7 +9,7 @@
 
         <!--url 中的后缀是解决 Cannot obtain primary key information from the database, generated objects may be incomplete 问题-->
         <jdbcConnection driverClass="com.mysql.cj.jdbc.Driver"
-                        connectionURL="jdbc:mysql://localhost:3307/netty?useUnicode=true&amp;characterEncoding=UTF-8&amp;zeroDateTimeBehavior=convertToNull&amp;serverTimezone=GMT" userId="root"
+                        connectionURL="jdbc:mysql://localhost:3307/netty?useUnicode=true&amp;characterEncoding=UTF-8&amp;zeroDateTimeBehavior=convertToNull&amp;serverTimezone=GMT&amp;tinyInt1isBit=false" userId="root"
                         password="123">
         </jdbcConnection>
 
