@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd" >
+<generatorConfiguration>
+    <!--数据库的jdbc驱动的jar包地址-->
+<!--    <classPathEntry location="./mysql-connector-java-8.0.13.jar"/>-->
+    <classPathEntry location="G:\personal\mybatis-generator\src\main\resources\lib\mysql-connector-java-8.0.13.jar"/>
+    <context id="tt">
+
+        <!--url 中的后缀是解决 Cannot obtain primary key information from the database, generated objects may be incomplete 问题-->
+        <jdbcConnection driverClass="com.mysql.cj.jdbc.Driver"
+                        connectionURL="jdbc:mysql://192.168.208.8:3306/wk_db_loan?useUnicode=true&amp;characterEncoding=UTF-8&amp;zeroDateTimeBehavior=convertToNull&amp;serverTimezone=GMT&amp;tinyInt1isBit=false" userId="all_rw"
+                        password="sMONhUKSjCi1s8fU">
+        </jdbcConnection>
+
+        <javaTypeResolver type="client.config.MyResolver">
+            <!--
+            true：使用BigDecimal对应DECIMAL和 NUMERIC数据类型
+            false：默认,
+               scale>0;length>18：使用BigDecimal;
+               scale=0;length[10,18]：使用Long；
+               scale=0;length[5,9]：使用Integer；
+               scale=0;length<5：使用Short；
+             -->
+            <property name="forceBigDecimals" value="false"/>
+        </javaTypeResolver>
+
+        <javaModelGenerator targetPackage="data.model"
+                            targetProject="src/main/java">
+            <property name="enableSubPackages" value="false"/>
+            <property name="trimStrings" value="true"/>
+        </javaModelGenerator>
+        <sqlMapGenerator targetPackage="mapper"
+                         targetProject="src/main/resources">
+            <property name="enableSubPackages" value="false"/>
+        </sqlMapGenerator>
+        <javaClientGenerator targetPackage="data.dao"
+                             targetProject="src/main/java"
+                             type="XMLMAPPER">
+            <property name="enableSubPackages" value="false"/>
+        </javaClientGenerator>
+        <!-- domainObjectName 大写 ，不然很麻烦 -->
+        <table tableName="wk_loan_order_benefit_info" domainObjectName="LoanOrderBenefitInfo"
+               >
+<!--               enableCountByExample="false" enableUpdateByExample="false"-->
+<!--         enableDeleteByExample="false" enableSelectByExample="false" enableDeleteByPrimaryKey="true" enableSelectByPrimaryKey="true" enableUpdateByPrimaryKey="true"-->
+<!--         enableInsert="true"-->
+<!--        >-->
+            <!--设置自增主键-->
+<!--            <generatedKey column="id" sqlStatement="Mysql" identity="true"></generatedKey>-->
+            <generatedKey column="id" sqlStatement="Mysql" identity="true"></generatedKey>
+            <!--用于配置不需要手动插入，即自动生成的，如修改时间-->
+            <ignoreColumn column="create_time"></ignoreColumn>
+            <ignoreColumn column="update_time"></ignoreColumn>
+        </table>
+
+    </context>
+
+</generatorConfiguration>
